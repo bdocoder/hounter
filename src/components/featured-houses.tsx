@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HouseCard from "./house-card";
 import SectionHeading from "./section-heading";
 import Subheading from "./subheading";
@@ -25,11 +25,16 @@ function FilterButton({
 
 export default function FeaturedHouses() {
   const [current, setCurrent] = useState(0);
-  const [filter, setFilter] = useState<"house" | "villa" | "apartment">(
-    "house"
+  const [filter, setFilter] = useState<"house" | "villa" | "apartment" | "all">(
+    "all"
   );
 
+  useEffect(() => {
+    setCurrent(0);
+  }, [filter]);
+
   function getMaxIndex() {
+    if (filter === "all") return 6;
     if (filter === "house") return 2;
     return 1;
   }
@@ -42,6 +47,12 @@ export default function FeaturedHouses() {
           <SectionHeading>Featured House</SectionHeading>
         </div>
         <div className="flex justify-between gap-8 h-[52px]">
+          <FilterButton
+            selected={filter === "all"}
+            onClick={() => setFilter("all")}
+          >
+            <span>All</span>
+          </FilterButton>
           <FilterButton
             selected={filter === "house"}
             onClick={() => setFilter("house")}
@@ -86,7 +97,7 @@ export default function FeaturedHouses() {
       </div>
 
       <div className="flex gap-10">
-        {filter === "house" && (
+        {(filter === "house" || filter === "all") && (
           <HouseCard
             style={{ left: `${-current * 380}px` }}
             className="relative transition-[left]"
@@ -98,7 +109,7 @@ export default function FeaturedHouses() {
           />
         )}
 
-        {filter === "house" && (
+        {(filter === "house" || filter === "all") && (
           <HouseCard
             className="relative transition-[left]"
             style={{ left: `${-current * 380}px` }}
@@ -110,7 +121,7 @@ export default function FeaturedHouses() {
           />
         )}
 
-        {filter === "apartment" && (
+        {(filter === "apartment" || filter === "all") && (
           <HouseCard
             className="relative transition-[left]"
             style={{ left: `${-current * 380}px` }}
@@ -122,7 +133,7 @@ export default function FeaturedHouses() {
           />
         )}
 
-        {filter === "villa" && (
+        {(filter === "villa" || filter === "all") && (
           <HouseCard
             className="relative transition-[left]"
             style={{ left: `${-current * 380}px` }}
@@ -134,7 +145,7 @@ export default function FeaturedHouses() {
           />
         )}
 
-        {filter === "apartment" && (
+        {(filter === "apartment" || filter === "all") && (
           <HouseCard
             className="relative transition-[left]"
             style={{ left: `${-current * 380}px` }}
@@ -146,7 +157,7 @@ export default function FeaturedHouses() {
           />
         )}
 
-        {filter === "house" && (
+        {(filter === "house" || filter === "all") && (
           <HouseCard
             className="relative transition-[left]"
             style={{ left: `${-current * 380}px` }}
@@ -157,7 +168,7 @@ export default function FeaturedHouses() {
             type="new"
           />
         )}
-        {filter === "villa" && (
+        {(filter === "villa" || filter === "all") && (
           <HouseCard
             className="relative transition-[left]"
             style={{ left: `${-current * 380}px` }}
