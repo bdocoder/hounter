@@ -8,6 +8,7 @@ import Reviews from "./components/reviews";
 import SearchBox from "./components/search-box";
 import SectionHeading from "./components/section-heading";
 import Subheading from "./components/subheading";
+import Tour from "./components/tour";
 import people from "./lib/people";
 
 export default function App() {
@@ -132,7 +133,7 @@ export default function App() {
           <img src="/vector-6.svg" className="absolute right-0 -top-64" />
         </div>
 
-        <div className="grid grid-cols-2">
+        <div className="flex flex-col items-center lg:flex-row">
           <div className="grid gap-8">
             <div className="grid gap-4">
               <div>
@@ -170,21 +171,7 @@ export default function App() {
             </div>
           </div>
 
-          <div className="relative [&>img]:rounded ml-auto">
-            <img src="/tour-1.png" />
-            <img
-              src="/play.svg"
-              className="absolute top-[50%] left-[220px] translate-y-[-50%] z-10 backdrop-blur-[5px]"
-            />
-            <div className="absolute z-20 -bottom-10 -left-10">
-              <div className="flex items-end w-full h-full">
-                {/* TODO: fix these images */}
-                <img src="/tour-2.png" className="mr-3" />
-                <img src="/tour-4.png" className="mr-2" />
-                <img src="/tour-3.png" />
-              </div>
-            </div>
-          </div>
+          <Tour />
         </div>
       </section>
 
