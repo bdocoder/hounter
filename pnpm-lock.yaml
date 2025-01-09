@@ -14,6 +14,9 @@ importers:
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
+      noval:
+        specifier: ^1.1.2
+        version: 1.1.2
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -977,6 +980,9 @@ packages:
   normalize-range@0.1.2:
     resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
     engines: {node: '>=0.10.0'}
+
+  noval@1.1.2:
+    resolution: {integrity: sha512-B3V3n71B+HWUBdNbFHCse/F7hdky7oDLwvU1d71fAwOhZeG++wntXd1W/JICV+mXbyxSs68e3n2z7KgvBP1zjw==}
 
   object-assign@4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
@@ -2105,6 +2111,8 @@ snapshots:
   normalize-path@3.0.0: {}
 
   normalize-range@0.1.2: {}
+
+  noval@1.1.2: {}
 
   object-assign@4.1.1: {}
 

@@ -3,6 +3,7 @@ import HouseCard from "./house-card";
 import SectionHeading from "./section-heading";
 import Subheading from "./subheading";
 import classNames from "classnames";
+import { useFilter } from "../lib/context";
 
 function FilterButton({
   selected,
@@ -25,9 +26,7 @@ function FilterButton({
 
 export default function FeaturedHouses() {
   const [current, setCurrent] = useState(0);
-  const [filter, setFilter] = useState<"house" | "villa" | "apartment" | "all">(
-    "all"
-  );
+  const [filter, setFilter] = useFilter();
 
   useEffect(() => {
     setCurrent(0);
