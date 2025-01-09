@@ -7,9 +7,13 @@ import Tips from "./components/tips";
 import Tour from "./components/tour";
 import { Provider } from "./lib/context";
 
+const AppProvider = Provider as unknown as (props: {
+  children: React.ReactNode;
+}) => React.ReactNode;
+
 export default function App() {
   return (
-    <Provider>
+    <AppProvider>
       <div className="overflow-hidden">
         <Header />
         <FeaturedHouses />
@@ -19,6 +23,6 @@ export default function App() {
         <Subscribe />
         <Footer />
       </div>
-    </Provider>
+    </AppProvider>
   );
 }

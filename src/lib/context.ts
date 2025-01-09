@@ -6,7 +6,10 @@ export const Provider = noval(
   {
     filter: "all",
   },
-  ({ type, payload }, { update }) => {
+  (
+    { type, payload }: { type: "setFilter"; payload: { filter: Filter } },
+    { update }: { update: (data: { filter: Filter }) => void }
+  ) => {
     function setFilter() {
       const { filter } = payload;
       update({ filter });
